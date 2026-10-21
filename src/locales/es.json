@@ -49,7 +49,10 @@
         "provider": "Vista Proveedor",
         "admin": "Vista Administrador",
         "architecture": "Arquitectura de Software"
-      }
+      },
+      "liveDemo": "Ver Despliegue",
+      "docTooltip": "Documento del Proyecto",
+      "githubTooltip": "Repositorio en GitHub"
     }
   },
   "footer": {

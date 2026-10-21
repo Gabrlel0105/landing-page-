@@ -49,7 +49,10 @@
         "provider": "Supplier View",
         "admin": "Admin View",
         "architecture": "Software Architecture"
-      }
+      },
+      "liveDemo": "Live Demo",
+      "docTooltip": "Project Document",
+      "githubTooltip": "GitHub Repository"
     }
   },
   "footer": {

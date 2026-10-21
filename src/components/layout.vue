@@ -350,23 +350,38 @@ onBeforeUnmount(() => {
 
           <div class="project-links">
             <a
-              href="https://github.com/Gabrlel0105"
+              href="https://meaflow-plattform.web.app"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="GitHub Repository"
-              class="project-icon-link"
+              class="project-live-btn"
             >
-              <i class="pi pi-github"></i>
-            </a>
-            <a
-              href="https://github.com/Gabrlel0105"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="External Link"
-              class="project-icon-link"
-            >
+              <i class="pi pi-globe"></i>
+              <span>{{ t("projects.mealflow.liveDemo") }}</span>
               <i class="pi pi-external-link"></i>
             </a>
+
+            <div class="project-icon-group">
+              <a
+                href="https://docs.google.com/document/d/1kzsUtyPWvh-3t70USqvpHiHrlKuhbzL5ofCYJ5U67NE/edit?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                :aria-label="t('projects.mealflow.docTooltip')"
+                :title="t('projects.mealflow.docTooltip')"
+                class="project-icon-link"
+              >
+                <i class="pi pi-file"></i>
+              </a>
+              <a
+                href="https://github.com/Gabrlel0105"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub Repository"
+                :title="t('projects.mealflow.githubTooltip')"
+                class="project-icon-link"
+              >
+                <i class="pi pi-github"></i>
+              </a>
+            </div>
           </div>
         </div>
 
@@ -893,6 +908,38 @@ onBeforeUnmount(() => {
 }
 .project-links {
   display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.25rem 1.5rem;
+  margin-top: 1.75rem;
+}
+.project-live-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.65rem 1.25rem;
+  background-color: transparent;
+  color: #64ffda;
+  border: 1.5px solid #64ffda;
+  border-radius: 6px;
+  font-family: "Fira Code", "Consolas", monospace;
+  font-size: 0.88rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(100, 255, 218, 0.1);
+}
+.project-live-btn:hover {
+  background-color: rgba(100, 255, 218, 0.12);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(100, 255, 218, 0.25);
+  color: #64ffda;
+}
+.project-live-btn i {
+  font-size: 0.95rem;
+}
+.project-icon-group {
+  display: inline-flex;
   align-items: center;
   gap: 1.25rem;
 }
