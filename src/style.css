@@ -1,0 +1,94 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    /* palette variables usados por componentes */
+    --color-text: #ccd6f6;
+    --color-background: #0a192f; /* azul marino */
+    --color-background-soft: rgba(255,255,255,0.03); /* ligerísimo overlay para botones */
+    --color-border: rgba(255,255,255,0.06);
+}
+
+html, body, #app {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #0a192f; /* azul marino */
+    overflow-x: hidden; /* ✅ permite scroll vertical, pero evita desbordamiento horizontal */
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    min-height: 100vh; /* ✅ asegura altura mínima */
+}
+
+/* ✅ Cada sección ocupará toda la pantalla */
+section {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5rem 10%;
+    color: #ccd6f6;
+}
+
+/* PrimeVue v3 & v4 Select / Dropdown global overrides: fondo oscuro y texto claro visible */
+.p-select,
+.p-dropdown {
+  background-color: #112240 !important;
+  color: #ccd6f6 !important;
+  border: 1px solid #233554 !important;
+}
+
+.p-select-label,
+.p-select-dropdown,
+.p-dropdown-label,
+.p-dropdown-trigger {
+  color: #ccd6f6 !important;
+}
+
+.p-select-overlay,
+.p-select-list-container,
+.p-select-list,
+.p-dropdown-panel,
+.p-dropdown-items,
+.p-overlaypanel,
+.p-overlaypanel .p-overlaypanel-content,
+.p-overlaypanel .p-overlaypanel-content .p-dropdown-items {
+  background-color: #112240 !important;
+  color: #ccd6f6 !important;
+  border: 1px solid #233554 !important;
+}
+
+.p-select-option,
+.p-select-option span,
+.p-dropdown-item,
+.p-dropdown-items li,
+.p-dropdown-item .p-dropdown-header,
+.p-dropdown-item .p-dropdown-label {
+  background-color: transparent !important;
+  color: #ccd6f6 !important;
+}
+
+.p-select-option:hover,
+.p-select-option.p-focus,
+.p-select-option.p-select-option-selected,
+.p-dropdown-items li:hover,
+.p-overlaypanel .p-dropdown-items li:hover {
+  background-color: rgba(100, 255, 218, 0.12) !important;
+  color: #64ffda !important;
+}

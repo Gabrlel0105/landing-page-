@@ -1,0 +1,58 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Sobre mí",
+    "skills": "Habilidades",
+    "projects": "Proyectos"
+  },
+  "hero": {
+    "greeting": "Hola, mi nombre es",
+    "subtitle": "Diseño. Construyo. Sigo aprendiendo.",
+    "description": "Soy estudiante de cuarto año de Ingeniería de Software y disfruto diseñar arquitecturas de software, implementar soluciones innovadoras y aprender continuamente durante todo el proceso.",
+    "cta": "Ver Mis Proyectos",
+    "codeBadge": "Arquitectura C4 Lista",
+    "codeMeta": "DDD • Microservicios • Cloud"
+  },
+  "about": {
+    "title": "Sobre Mí",
+    "p1": "¡Hola! Soy estudiante de cuarto año de Ingeniería de Software en la UPC (Universidad Peruana de Ciencias Aplicadas) con un gran interés en el desarrollo backend y full-stack. Disfruto diseñar arquitecturas de software, construir aplicaciones web y móviles con tecnologías como Spring Boot, Vue.js y Flutter, y encontrar soluciones creativas a retos técnicos.",
+    "p2": "Siempre busco oportunidades para aprender, experimentar con nuevas tecnologías y mejorar la forma en que desarrollo software. Me interesa especialmente la arquitectura de software, la integración de agentes de IA y las tecnologías emergentes. También disfruto trabajar en equipo, compartir ideas y aprender de los demás, pues creo que la colaboración es clave para construir mejores soluciones.",
+    "p3": "Trabajo constantemente en perfeccionar mis habilidades y transformar ideas en aplicaciones funcionales. ¡Te invito a explorar mis proyectos y ver lo que estoy construyendo!"
+  },
+  "skills": {
+    "title": "Habilidades y Herramientas",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "certificates": "Certificados"
+  },
+  "projects": {
+    "title": "Mis Proyectos",
+    "overtitle": "Proyecto Destacado",
+    "mealflow": {
+      "title": "MealFlow — Plataforma de alimentación saludable",
+      "p1_intro": "es una plataforma web que conecta a consumidores interesados en llevar una alimentación saludable con proveedores que publican sus productos. Permite descubrir opciones de comida y organizar la alimentación semanal.",
+      "p2_1": "El backend está desarrollado con",
+      "p2_and": "y",
+      "p2_2": ", siguiendo una arquitectura de microservicios centralizada mediante un",
+      "p2_3": ". Se aplican principios de",
+      "p2_4": "y patrones de diseño. Para la seguridad de los usuarios, se implementan",
+      "p2_5": "y autenticación basada en tokens",
+      "p2_6": ". Además, se utiliza",
+      "p2_7": "para el control de intentos de autenticación y",
+      "p2_8": "para la comunicación asíncrona entre microservicios.",
+      "p3_1": "El frontend está desarrollado con",
+      "p3_2": ", con una interfaz adaptable a distintos dispositivos.",
+      "p3_3": "se utiliza para la persistencia de datos y",
+      "p3_4": "como plataforma de infraestructura y despliegue.",
+      "slides": {
+        "consumer": "Vista Consumidor",
+        "provider": "Vista Proveedor",
+        "admin": "Vista Administrador",
+        "architecture": "Arquitectura de Software"
+      }
+    }
+  },
+  "footer": {
+    "role": "Desarrollador Backend"
+  }
+}

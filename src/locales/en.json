@@ -1,0 +1,58 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects"
+  },
+  "hero": {
+    "greeting": "Hi, my name is",
+    "subtitle": "I design. I build. I keep learning.",
+    "description": "I'm a fourth-year Software Engineering student who enjoys designing software architectures, implementing innovative solutions, and continuously learning throughout the process.",
+    "cta": "Explore My Projects",
+    "codeBadge": "C4 Architecture Ready",
+    "codeMeta": "DDD • Microservices • Cloud"
+  },
+  "about": {
+    "title": "About Me",
+    "p1": "Hey there! I'm a fourth-year Software Engineering student at UPC (Universidad Peruana de Ciencias Aplicadas) with a strong interest in backend and full-stack development. I enjoy designing software architectures, building web and mobile applications with technologies like Spring Boot, Vue.js, and Flutter, and finding creative solutions to technical challenges.",
+    "p2": "I'm always looking for opportunities to learn, experiment with new technologies, and improve the way I develop software. I'm particularly interested in software architecture, AI agent integration, and emerging technologies. I also enjoy working in teams, sharing ideas, and learning from others, as I believe collaboration plays an important role in building better solutions.",
+    "p3": "I'm constantly working on improving my skills and turning ideas into functional applications. Feel free to explore my projects and see what I'm building!"
+  },
+  "skills": {
+    "title": "Skills and My Tools",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "certificates": "Certificates"
+  },
+  "projects": {
+    "title": "My Projects",
+    "overtitle": "Featured Project",
+    "mealflow": {
+      "title": "MealFlow — Healthy Food Platform",
+      "p1_intro": "is a web platform that connects consumers interested in maintaining a healthy diet with suppliers who publish their products. It allows discovering meal options and organizing weekly nutrition.",
+      "p2_1": "The backend is developed with",
+      "p2_and": "and",
+      "p2_2": ", following a centralized microservices architecture through an",
+      "p2_3": ". Principles of",
+      "p2_4": "and design patterns are applied. For user security,",
+      "p2_5": "and token-based authentication with",
+      "p2_6": "are implemented. Additionally,",
+      "p2_7": "is used for authentication attempt control and",
+      "p2_8": "for asynchronous communication between microservices.",
+      "p3_1": "The frontend is built with",
+      "p3_2": ", featuring a responsive interface adaptable to different devices.",
+      "p3_3": "is used for data persistence and",
+      "p3_4": "as the infrastructure and deployment platform.",
+      "slides": {
+        "consumer": "Consumer View",
+        "provider": "Supplier View",
+        "admin": "Admin View",
+        "architecture": "Software Architecture"
+      }
+    }
+  },
+  "footer": {
+    "role": "Backend Developer"
+  }
+}
