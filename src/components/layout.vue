@@ -71,6 +71,14 @@ function openGithub() {
   window.open('https://github.com/Gabrlel0105', '_blank', 'noopener,noreferrer');
 }
 
+function openLiveDemo() {
+  window.open('https://meaflow-plattform.web.app', '_blank', 'noopener,noreferrer');
+}
+
+function openDoc() {
+  window.open('https://docs.google.com/document/d/1kzsUtyPWvh-3t70USqvpHiHrlKuhbzL5ofCYJ5U67NE/edit?usp=sharing', '_blank', 'noopener,noreferrer');
+}
+
 // mobile menu state
 const mobileOpen = ref(false);
 function toggleMobile() {
@@ -349,38 +357,33 @@ onBeforeUnmount(() => {
           </ul>
 
           <div class="project-links">
-            <a
-              href="https://meaflow-plattform.web.app"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="project-live-btn"
-            >
-              <i class="pi pi-globe"></i>
-              <span>{{ t("projects.mealflow.liveDemo") }}</span>
-              <i class="pi pi-external-link"></i>
-            </a>
+            <pv-button
+              :label="t('projects.mealflow.liveDemo')"
+              icon="pi pi-globe"
+              class="project-pv-btn"
+              outlined
+              @click="openLiveDemo"
+            />
 
             <div class="project-icon-group">
-              <a
-                href="https://docs.google.com/document/d/1kzsUtyPWvh-3t70USqvpHiHrlKuhbzL5ofCYJ5U67NE/edit?usp=sharing"
-                target="_blank"
-                rel="noopener noreferrer"
-                :aria-label="t('projects.mealflow.docTooltip')"
+              <pv-button
+                icon="pi pi-file"
+                rounded
+                text
+                class="project-pv-icon-btn"
                 :title="t('projects.mealflow.docTooltip')"
-                class="project-icon-link"
-              >
-                <i class="pi pi-file"></i>
-              </a>
-              <a
-                href="https://github.com/Gabrlel0105"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub Repository"
+                :aria-label="t('projects.mealflow.docTooltip')"
+                @click="openDoc"
+              />
+              <pv-button
+                icon="pi pi-github"
+                rounded
+                text
+                class="project-pv-icon-btn"
                 :title="t('projects.mealflow.githubTooltip')"
-                class="project-icon-link"
-              >
-                <i class="pi pi-github"></i>
-              </a>
+                :aria-label="t('projects.mealflow.githubTooltip')"
+                @click="openGithub"
+              />
             </div>
           </div>
         </div>
@@ -422,22 +425,22 @@ onBeforeUnmount(() => {
               </div>
 
               <!-- Flechas de navegación -->
-              <button
-                type="button"
+              <pv-button
+                icon="pi pi-chevron-left"
+                rounded
+                text
                 class="carousel-arrow prev"
                 @click.stop="prevSlide"
                 aria-label="Previous slide"
-              >
-                <i class="pi pi-chevron-left"></i>
-              </button>
-              <button
-                type="button"
+              />
+              <pv-button
+                icon="pi pi-chevron-right"
+                rounded
+                text
                 class="carousel-arrow next"
                 @click.stop="nextSlide"
                 aria-label="Next slide"
-              >
-                <i class="pi pi-chevron-right"></i>
-              </button>
+              />
             </div>
 
             <!-- Bolitas debajo del carrusel -->
@@ -913,46 +916,44 @@ onBeforeUnmount(() => {
   gap: 1.25rem 1.5rem;
   margin-top: 1.75rem;
 }
-.project-live-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 0.65rem 1.25rem;
-  background-color: transparent;
-  color: #64ffda;
-  border: 1.5px solid #64ffda;
-  border-radius: 6px;
-  font-family: "Fira Code", "Consolas", monospace;
-  font-size: 0.88rem;
-  font-weight: 500;
-  text-decoration: none;
-  transition: all 0.25s ease;
-  box-shadow: 0 4px 14px rgba(100, 255, 218, 0.1);
+.project-pv-btn {
+  border: 1.5px solid #64ffda !important;
+  color: #64ffda !important;
+  background-color: transparent !important;
+  font-family: "Fira Code", "Consolas", monospace !important;
+  font-size: 0.88rem !important;
+  font-weight: 500 !important;
+  padding: 0.65rem 1.25rem !important;
+  border-radius: 6px !important;
+  transition: all 0.25s ease !important;
+  box-shadow: 0 4px 14px rgba(100, 255, 218, 0.1) !important;
+  cursor: pointer;
 }
-.project-live-btn:hover {
-  background-color: rgba(100, 255, 218, 0.12);
+.project-pv-btn:hover {
+  background-color: rgba(100, 255, 218, 0.12) !important;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(100, 255, 218, 0.25);
-  color: #64ffda;
-}
-.project-live-btn i {
-  font-size: 0.95rem;
+  box-shadow: 0 6px 20px rgba(100, 255, 218, 0.25) !important;
+  color: #64ffda !important;
+  border-color: #64ffda !important;
 }
 .project-icon-group {
   display: inline-flex;
   align-items: center;
-  gap: 1.25rem;
+  gap: 0.75rem;
 }
-.project-icon-link {
-  color: #ccd6f6;
-  font-size: 1.35rem;
-  text-decoration: none;
-  transition: color 0.2s ease, transform 0.2s ease;
-  display: inline-flex;
-  align-items: center;
+.project-pv-icon-btn {
+  color: #ccd6f6 !important;
+  font-size: 1.35rem !important;
+  width: 2.75rem !important;
+  height: 2.75rem !important;
+  background-color: transparent !important;
+  border: none !important;
+  transition: color 0.2s ease, transform 0.2s ease, background-color 0.2s ease !important;
+  cursor: pointer;
 }
-.project-icon-link:hover {
-  color: #64ffda;
+.project-pv-icon-btn:hover {
+  color: #64ffda !important;
+  background-color: rgba(100, 255, 218, 0.08) !important;
   transform: translateY(-2px);
 }
 .project-image-col {
@@ -1047,28 +1048,30 @@ onBeforeUnmount(() => {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: rgba(10, 25, 47, 0.75);
-  border: 1px solid #233554;
-  color: #ccd6f6;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 36px !important;
+  height: 36px !important;
+  min-width: 36px !important;
+  border-radius: 50% !important;
+  background: rgba(10, 25, 47, 0.75) !important;
+  border: 1px solid #233554 !important;
+  color: #ccd6f6 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   cursor: pointer;
   z-index: 4;
-  transition: all 0.2s ease;
+  transition: all 0.2s ease !important;
   backdrop-filter: blur(4px);
   opacity: 0;
+  padding: 0 !important;
 }
 .carousel-viewport:hover .carousel-arrow {
   opacity: 1;
 }
 .carousel-arrow:hover {
-  background: #112240;
-  color: #64ffda;
-  border-color: #64ffda;
+  background: #112240 !important;
+  color: #64ffda !important;
+  border-color: #64ffda !important;
   transform: translateY(-50%) scale(1.08);
 }
 .carousel-arrow.prev {
