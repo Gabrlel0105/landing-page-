@@ -167,7 +167,7 @@ onBeforeUnmount(() => {
         <i class="pi pi-linkedin"></i>
       </a>
       <a
-        href="mailto:gabrielmarca.dev@outlook.com"
+        href="mailto:gabrielmamani.marca@outlook.com"
         aria-label="Outlook Email"
         class="sidebar-icon-link"
       >
@@ -179,10 +179,10 @@ onBeforeUnmount(() => {
     <!-- 📌 Barra Lateral Derecha Fija (Correo de Outlook) -->
     <aside class="sidebar-right" aria-label="Contact Email">
       <a
-        href="mailto:gabrielmarca.dev@outlook.com"
+        href="mailto:gabrielmamani.marca@outlook.com"
         class="sidebar-email-link"
       >
-        gabrielmarca.dev@outlook.com
+        gabrielmamani.marca@outlook.com
       </a>
       <div class="sidebar-line"></div>
     </aside>
