@@ -270,16 +270,13 @@ onBeforeUnmount(() => {
               <span class="tech-name">Vue</span>
             </div>
 
-            <div class="tech-item" v-tooltip.top="'React'">
-              <svg class="tech-logo" viewBox="-11.5 -10.23174 23 20.46348" xmlns="http://www.w3.org/2000/svg" aria-label="React">
-                <circle cx="0" cy="0" r="2.05" fill="#61dafb"/>
-                <g stroke="#61dafb" stroke-width="1" fill="none">
-                  <ellipse rx="11" ry="4.2"/>
-                  <ellipse rx="11" ry="4.2" transform="rotate(60)"/>
-                  <ellipse rx="11" ry="4.2" transform="rotate(120)"/>
-                </g>
+            <div class="tech-item" v-tooltip.top="'Angular'">
+              <svg class="tech-logo" viewBox="0 0 250 250" xmlns="http://www.w3.org/2000/svg" aria-label="Angular">
+                <polygon fill="#DD0031" points="125,30 125,30 125,30 31.9,63.2 46.1,186.3 125,230 125,230 125,230 203.9,186.3 218.1,63.2"/>
+                <polygon fill="#C3002F" points="125,30 125,52.2 125,52.1 125,153.4 125,153.4 125,230 125,230 203.9,186.3 218.1,63.2"/>
+                <path fill="#FFFFFF" d="M125,52.1L66.8,182.6h21.7l11.7-29.2h49.4l11.7,29.2H183L125,52.1z M142,135h-34l17-40.9L142,135z"/>
               </svg>
-              <span class="tech-name">React</span>
+              <span class="tech-name">Angular</span>
             </div>
           </div>
         </div>
@@ -289,12 +286,11 @@ onBeforeUnmount(() => {
             <span class="triangle">▸</span> {{ t("skills.backend") }} <span class="triangle">◂</span>
           </h3>
           <div class="tech-logos">
-            <div class="tech-item" v-tooltip.top="'FastAPI'">
-              <svg class="tech-logo" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" aria-label="FastAPI">
-                <circle cx="64" cy="64" r="60" fill="#009688"/>
-                <path fill="#ffffff" d="M68.5 22L34 70h27l-5.5 36L94 58H67l1.5-36z"/>
+            <div class="tech-item" v-tooltip.top="'.NET'">
+              <svg class="tech-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-label=".NET">
+                <path fill="#512BD4" d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm-7.07 16.273a1.455 1.455 0 1 1 0-2.91 1.455 1.455 0 0 1 0 2.91zm5.228-.091H8.716V7.818h1.42l3.364 4.545V7.818h1.442v8.364h-1.42L10.158 11.6v4.582zm6.204 0V7.818h4.745v1.364h-3.303v2.182h3.012v1.364h-3.012v2.091h3.393v1.364h-4.835zm5.727 0V9.182h-2.182V7.818h5.727v1.364h-2.182v7.091h-1.363z"/>
               </svg>
-              <span class="tech-name">FastAPI</span>
+              <span class="tech-name">.NET</span>
             </div>
 
             <div class="tech-item" v-tooltip.top="'Spring Boot'">
