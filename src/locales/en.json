@@ -28,6 +28,10 @@
   "projects": {
     "title": "My Projects",
     "overtitle": "Featured Project",
+    "viewRepo": "View Repository",
+    "githubTooltip": "GitHub Repository",
+    "docTooltip": "Project Document",
+    "liveDemo": "Live Demo",
     "mealflow": {
       "title": "MealFlow — Healthy Food Platform",
       "p1_intro": "is a web platform that connects consumers interested in maintaining a healthy diet with suppliers who publish their products. It allows discovering meal options and organizing weekly nutrition.",
@@ -48,11 +52,49 @@
         "consumer": "Consumer View",
         "provider": "Supplier View",
         "admin": "Admin View",
+        "grafana": "Grafana Observability",
+        "prometheus": "Prometheus",
         "architecture": "Software Architecture"
-      },
-      "liveDemo": "Live Demo",
-      "docTooltip": "Project Document",
-      "githubTooltip": "GitHub Repository"
+      }
+    },
+    "diabelife": {
+      "title": "DiabeLife — IoT Healthcare Platform for Diabetes",
+      "p1_intro": "is a comprehensive web application designed to support individuals living with diabetes through IoT technologies, featuring a smart glucometer that automatically streams blood glucose metrics in real time.",
+      "p2_1": "The backend is engineered with",
+      "p2_2": "under a modular monolith architecture following",
+      "p2_3": ". It integrates an",
+      "p2_4": "context with authentication based on",
+      "p2_5": ", secure password hashing, and authorization middleware in the ASP.NET Core pipeline.",
+      "p2_6": "is utilized alongside MySQL applying automated auditing and naming conventions, documented with",
+      "p3_1": "The frontend is built with",
+      "p3_2": ", integrating community social feeds, medical appointments, clinical reports, and direct doctor-patient messaging. Containerized with",
+      "p3_3": "and deployed to",
+      "p3_4": "(backend) and",
+      "p3_5": "(frontend).",
+      "slides": {
+        "slide1": "IoT Blood Glucose Monitoring",
+        "slide2": "Doctor Appointments & Schedules",
+        "slide3": "Clinical Reports & Diagnostics",
+        "slide4": "Community & Direct Chat"
+      }
+    },
+    "denunciaya": {
+      "title": "DenunciaYa — Urban Incident & Civic Reporting Platform",
+      "p1_intro": "is a web and mobile platform enabling citizens to report civic issues (potholes, public lighting failures, waste accumulation, leaks) and corruption incidents quickly, securely, and anonymously with multimedia evidence sent in real time.",
+      "p2_1": "The backend is developed with",
+      "p2_2": "following principles of",
+      "p2_3": "and layered architecture. Authentication and access control are powered by",
+      "p2_4": "and",
+      "p2_5": "tokens. It leverages",
+      "p2_6": "for data persistence over MySQL and interactive API documentation through",
+      "p3_1": "The frontend is built with",
+      "p3_2": ", providing real-time municipal control panels, live incident ticket tracking, and advanced analytics for public administration. Containerized with",
+      "p3_3": "for reliable SaaS deployments.",
+      "slides": {
+        "slide1": "Incident Management Dashboard",
+        "slide2": "Ticket Reception & Processing",
+        "slide3": "Municipal Tracking & Analytics"
+      }
     }
   },
   "footer": {

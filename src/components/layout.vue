@@ -2,16 +2,27 @@
 import { useI18n } from "vue-i18n";
 import LanguageSwitcher from "@/components/language-switcher.vue";
 import ShootingStars from "@/components/ShootingStars.vue";
+import ProjectCarousel from "@/components/ProjectCarousel.vue";
 import { ref, onMounted, onBeforeUnmount } from 'vue';
 
 import vistaConsumidorImg from "@/assets/fotos/vista_consumidor.png";
 import vistaProveedorImg from "@/assets/fotos/vista_provedor.png";
 import vistaAdminImg from "@/assets/fotos/vista_administrador.png";
-import arqSoftwareImg from "@/assets/fotos/arq_software.png";
+import grafanaImg from "@/assets/fotos/grafana.png";
+import prometheusImg from "@/assets/fotos/prometheus.png";
+
+import diabelifeImg1 from "@/assets/fotos/dibelife/primera imagen.png";
+import diabelifeImg2 from "@/assets/fotos/dibelife/img.png";
+import diabelifeImg3 from "@/assets/fotos/dibelife/img_1.png";
+import diabelifeImg4 from "@/assets/fotos/dibelife/img_2.png";
+
+import denunciayaImg1 from "@/assets/fotos/denunciaya/primera imagen.png";
+import denunciayaImg2 from "@/assets/fotos/denunciaya/img.png";
+import denunciayaImg3 from "@/assets/fotos/denunciaya/img_1.png";
 
 const { t } = useI18n();
 
-const projectSlides = [
+const mealflowSlides = [
   {
     key: "consumer",
     titleKey: "projects.mealflow.slides.consumer",
@@ -28,58 +39,78 @@ const projectSlides = [
     image: vistaAdminImg,
   },
   {
-    key: "architecture",
-    titleKey: "projects.mealflow.slides.architecture",
-    image: arqSoftwareImg,
+    key: "grafana",
+    titleKey: "projects.mealflow.slides.grafana",
+    image: grafanaImg,
+  },
+  {
+    key: "prometheus",
+    titleKey: "projects.mealflow.slides.prometheus",
+    image: prometheusImg,
   },
 ];
 
-const currentSlide = ref(0);
-let slideTimer = null;
+const diabelifeSlides = [
+  {
+    key: "slide1",
+    titleKey: "projects.diabelife.slides.slide1",
+    image: diabelifeImg1,
+  },
+  {
+    key: "slide2",
+    titleKey: "projects.diabelife.slides.slide2",
+    image: diabelifeImg2,
+  },
+  {
+    key: "slide3",
+    titleKey: "projects.diabelife.slides.slide3",
+    image: diabelifeImg3,
+  },
+  {
+    key: "slide4",
+    titleKey: "projects.diabelife.slides.slide4",
+    image: diabelifeImg4,
+  },
+];
 
-function startSlideTimer() {
-  stopSlideTimer();
-  slideTimer = setInterval(() => {
-    currentSlide.value = (currentSlide.value + 1) % projectSlides.length;
-  }, 3000);
-}
-
-function stopSlideTimer() {
-  if (slideTimer) {
-    clearInterval(slideTimer);
-    slideTimer = null;
-  }
-}
-
-function goToSlide(index) {
-  currentSlide.value = index;
-  startSlideTimer();
-}
-
-function prevSlide() {
-  currentSlide.value =
-    (currentSlide.value - 1 + projectSlides.length) % projectSlides.length;
-  startSlideTimer();
-}
-
-function nextSlide() {
-  currentSlide.value = (currentSlide.value + 1) % projectSlides.length;
-  startSlideTimer();
-}
+const denunciayaSlides = [
+  {
+    key: "slide1",
+    titleKey: "projects.denunciaya.slides.slide1",
+    image: denunciayaImg1,
+  },
+  {
+    key: "slide2",
+    titleKey: "projects.denunciaya.slides.slide2",
+    image: denunciayaImg2,
+  },
+  {
+    key: "slide3",
+    titleKey: "projects.denunciaya.slides.slide3",
+    image: denunciayaImg3,
+  },
+];
 
 function openGithub() {
   window.open('https://github.com/Gabrlel0105', '_blank', 'noopener,noreferrer');
 }
 
-function openLiveDemo() {
+function openMealflowLiveDemo() {
   window.open('https://meaflow-plattform.web.app', '_blank', 'noopener,noreferrer');
 }
 
-function openDoc() {
+function openMealflowDoc() {
   window.open('https://docs.google.com/document/d/1kzsUtyPWvh-3t70USqvpHiHrlKuhbzL5ofCYJ5U67NE/edit?usp=sharing', '_blank', 'noopener,noreferrer');
 }
 
-// mobile menu state
+function openDiabelifeRepo() {
+  window.open('https://github.com/orgs/upc-pre-202510-si0730-Grupo-Devspros/repositories', '_blank', 'noopener,noreferrer');
+}
+
+function openDenunciayaRepo() {
+  window.open('https://github.com/orgs/1ASI0729-7401-2520-Prodevs-DenunciaYa/repositories', '_blank', 'noopener,noreferrer');
+}
+
 const mobileOpen = ref(false);
 function toggleMobile() {
   mobileOpen.value = !mobileOpen.value;
@@ -88,7 +119,6 @@ function closeMobile() {
   mobileOpen.value = false;
 }
 
-// click-outside for mobile menu
 const headerRef = ref(null);
 function handleDocClick(e) {
   if (!mobileOpen.value) return;
@@ -105,18 +135,15 @@ function handleKeydown(e) {
 onMounted(() => {
   document.addEventListener('click', handleDocClick);
   document.addEventListener('keydown', handleKeydown);
-  startSlideTimer();
 });
 onBeforeUnmount(() => {
   document.removeEventListener('click', handleDocClick);
   document.removeEventListener('keydown', handleKeydown);
-  stopSlideTimer();
 });
 </script>
 
 <template>
   <div class="layout">
-    <!-- 🔹 Navbar -->
     <header ref="headerRef" class="navbar flex justify-content-between align-items-center px-5 py-3">
       <h2 class="logo">GM</h2>
 
@@ -131,7 +158,6 @@ onBeforeUnmount(() => {
         <LanguageSwitcher />
       </nav>
 
-      <!-- mobile menu toggle -->
       <button
         class="menu-toggle"
         @click="toggleMobile"
@@ -146,7 +172,6 @@ onBeforeUnmount(() => {
       </button>
     </header>
 
-    <!-- 📌 Barra Lateral Izquierda Fija (Redes Sociales) -->
     <aside class="sidebar-left" aria-label="Social Links">
       <a
         href="https://github.com/Gabrlel0105"
@@ -176,7 +201,6 @@ onBeforeUnmount(() => {
       <div class="sidebar-line"></div>
     </aside>
 
-    <!-- 📌 Barra Lateral Derecha Fija (Correo de Outlook) -->
     <aside class="sidebar-right" aria-label="Contact Email">
       <a
         href="mailto:gabrielmamani.marca@outlook.com"
@@ -187,7 +211,6 @@ onBeforeUnmount(() => {
       <div class="sidebar-line"></div>
     </aside>
 
-    <!-- 🏠 Hero Section -->
     <section id="home" class="hero flex flex-column justify-content-center align-items-start">
       <ShootingStars />
       <p class="intro-text">{{ t("hero.greeting") }}</p>
@@ -205,7 +228,6 @@ onBeforeUnmount(() => {
       />
     </section>
 
-    <!-- 👤 About Section -->
     <section id="about" class="section">
       <div class="about-container">
         <div class="about-content">
@@ -235,13 +257,11 @@ onBeforeUnmount(() => {
       </h2>
 
       <div class="skills-grid">
-        <!-- Frontend Column -->
         <div class="skills-column">
           <h3 class="skills-subtitle">
             <span class="triangle">▸</span> {{ t("skills.frontend") }} <span class="triangle">◂</span>
           </h3>
           <div class="tech-logos">
-            <!-- Vue.js SVG -->
             <div class="tech-item" v-tooltip.top="'Vue.js'">
               <svg class="tech-logo" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" aria-label="Vue.js">
                 <path fill="#42b883" d="M78.8,10L64,35.4L49.2,10H0l64,110l64-110C128,10,78.8,10,78.8,10z"/>
@@ -264,13 +284,11 @@ onBeforeUnmount(() => {
           </div>
         </div>
 
-        <!-- Backend Column -->
         <div class="skills-column">
           <h3 class="skills-subtitle">
             <span class="triangle">▸</span> {{ t("skills.backend") }} <span class="triangle">◂</span>
           </h3>
           <div class="tech-logos">
-            <!-- FastAPI SVG -->
             <div class="tech-item" v-tooltip.top="'FastAPI'">
               <svg class="tech-logo" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" aria-label="FastAPI">
                 <circle cx="64" cy="64" r="60" fill="#009688"/>
@@ -279,10 +297,9 @@ onBeforeUnmount(() => {
               <span class="tech-name">FastAPI</span>
             </div>
 
-            <!-- Spring Boot SVG -->
             <div class="tech-item" v-tooltip.top="'Spring Boot'">
               <svg class="tech-logo" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" aria-label="Spring">
-                <path fill="#6DB33F" d="M116.5 18.2c-1.8 4.4-5.9 7.8-10.7 9.5C90.6 15.1 69.2 10.6 48.8 16.5 22.9 24.1 6.8 50.6 12.6 77c1.9 8.7 6 16.6 11.7 23.1l-4.2 3.7c-1.8 1.6-0.7 4.6 1.7 4.6h19.6c1.2 0 2.3-0.9 2.5-2.1 5.8 2.2 12.1 3.4 18.6 3.4 28.4 0 51.9-21.5 54.6-49.7 1.7-17.8-4.7-34.1-0.6-41.8zM37.3 95.3c-2.5 0-4.5-2-4.5-4.5s2-4.5 4.5-4.5 4.5 2 4.5 4.5-2 4.5-4.5 4.5zm68.1-27.7c-12.5 16.1-36.3 18.8-57 17.8 0 0-3.5-0.2-7-0.8 0 0 1.3-0.6 3-1.3 13.7-4.8 20.2-5.8 28.5-10.1 15.7-8 31.3-25.5 34.4-43.6-5.9 17.3-23.9 32.1-40.2 38.2-11.2 4.1-31.4 8.2-31.4 8.2l-0.8-0.4c-13.7-6.7-14.1-36.4 10.8-46 10.9-4.2 21.3-1.9 33.1-4.7 12.6-3 27.2-12.4 33.1-24.7 6.6 19.7 14.5 50.3-6.5 67.4z"/>
+                <path fill="#6DB33F" d="M116.5 18.2c-1.8 4.4-5.9 7.8-107 9.5C90.6 15.1 69.2 10.6 48.8 16.5 22.9 24.1 6.8 50.6 12.6 77c1.9 8.7 6 16.6 11.7 23.1l-4.2 3.7c-1.8 1.6-0.7 4.6 1.7 4.6h19.6c1.2 0 2.3-0.9 2.5-2.1 5.8 2.2 12.1 3.4 18.6 3.4 28.4 0 51.9-21.5 54.6-49.7 1.7-17.8-4.7-34.1-0.6-41.8zM37.3 95.3c-2.5 0-4.5-2-4.5-4.5s2-4.5 4.5-4.5 4.5 2 4.5 4.5-2 4.5-4.5 4.5zm68.1-27.7c-12.5 16.1-36.3 18.8-57 17.8 0 0-3.5-0.2-7-0.8 0 0 1.3-0.6 3-1.3 13.7-4.8 20.2-5.8 28.5-10.1 15.7-8 31.3-25.5 34.4-43.6-5.9 17.3-23.9 32.1-40.2 38.2-11.2 4.1-31.4 8.2-31.4 8.2l-0.8-0.4c-13.7-6.7-14.1-36.4 10.8-46 10.9-4.2 21.3-1.9 33.1-4.7 12.6-3 27.2-12.4 33.1-24.7 6.6 19.7 14.5 50.3-6.5 67.4z"/>
               </svg>
               <span class="tech-name">Spring</span>
             </div>
@@ -290,7 +307,6 @@ onBeforeUnmount(() => {
         </div>
       </div>
 
-      <!-- Tarjeta de Certificados con PrimeVue pv-card -->
       <div class="certificates-wrapper">
         <pv-card class="certificates-card">
           <template #header>
@@ -319,149 +335,201 @@ onBeforeUnmount(() => {
       </div>
     </section>
 
-    <!-- 🚀 Projects Section -->
     <section id="projects" class="section projects-section">
       <h2 class="projects-main-title text-center">
         <span class="projects-number">04.</span> {{ t("projects.title") }}
       </h2>
 
-      <div class="featured-project-grid">
-        <!-- Columna Izquierda: Información del Proyecto -->
-        <div class="project-info-col">
-          <p class="project-overtitle">{{ t("projects.overtitle") }}</p>
-          <h3 class="project-featured-title">
-            {{ t("projects.mealflow.title") }}
-          </h3>
+      <div class="projects-wrapper">
+        <div class="featured-project-grid">
+          <div class="project-info-col">
+            <p class="project-overtitle">{{ t("projects.overtitle") }}</p>
+            <h3 class="project-featured-title">
+              {{ t("projects.mealflow.title") }}
+            </h3>
 
-          <div class="project-description-card">
-            <p>
-              <strong>MealFlow</strong> {{ t("projects.mealflow.p1_intro") }}
-            </p>
-            <p>
-              {{ t("projects.mealflow.p2_1") }} <span class="highlight-tech">Java</span> {{ t("projects.mealflow.p2_and") }} <span class="highlight-tech">Spring Boot</span>{{ t("projects.mealflow.p2_2") }} <span class="highlight-tech">API Gateway</span>{{ t("projects.mealflow.p2_3") }} <span class="highlight-tech">Domain-Driven Design (DDD)</span> {{ t("projects.mealflow.p2_4") }} <span class="highlight-tech">Spring Security</span> {{ t("projects.mealflow.p2_5") }} <span class="highlight-tech">JWT</span>{{ t("projects.mealflow.p2_6") }} <span class="highlight-tech">Redis</span> {{ t("projects.mealflow.p2_7") }} <span class="highlight-tech">RabbitMQ</span> {{ t("projects.mealflow.p2_8") }}
-            </p>
-            <p>
-              {{ t("projects.mealflow.p3_1") }} <span class="highlight-tech">Vue.js</span> {{ t("projects.mealflow.p2_and") }} <span class="highlight-tech">PrimeVue</span>{{ t("projects.mealflow.p3_2") }} <span class="highlight-tech">MySQL</span> {{ t("projects.mealflow.p3_3") }} <span class="highlight-tech">Azure</span> {{ t("projects.mealflow.p3_4") }}
-            </p>
+            <div class="project-description-card">
+              <p>
+                <strong>MealFlow</strong> {{ t("projects.mealflow.p1_intro") }}
+              </p>
+              <p>
+                {{ t("projects.mealflow.p2_1") }} <span class="highlight-tech">Java</span> {{ t("projects.mealflow.p2_and") }} <span class="highlight-tech">Spring Boot</span>{{ t("projects.mealflow.p2_2") }} <span class="highlight-tech">API Gateway</span>{{ t("projects.mealflow.p2_3") }} <span class="highlight-tech">Domain-Driven Design (DDD)</span> {{ t("projects.mealflow.p2_4") }} <span class="highlight-tech">Spring Security</span> {{ t("projects.mealflow.p2_5") }} <span class="highlight-tech">JWT</span>{{ t("projects.mealflow.p2_6") }} <span class="highlight-tech">Redis</span> {{ t("projects.mealflow.p2_7") }} <span class="highlight-tech">RabbitMQ</span> {{ t("projects.mealflow.p2_8") }}
+              </p>
+              <p>
+                {{ t("projects.mealflow.p3_1") }} <span class="highlight-tech">Vue.js</span> {{ t("projects.mealflow.p2_and") }} <span class="highlight-tech">PrimeVue</span>{{ t("projects.mealflow.p3_2") }} <span class="highlight-tech">MySQL</span> {{ t("projects.mealflow.p3_3") }} <span class="highlight-tech">Azure</span> {{ t("projects.mealflow.p3_4") }}
+              </p>
+            </div>
+
+            <ul class="project-tech-stack">
+              <li>Java</li>
+              <li>Spring Boot</li>
+              <li>Vue.js</li>
+              <li>PrimeVue</li>
+              <li>MySQL</li>
+              <li>Redis</li>
+              <li>RabbitMQ</li>
+              <li>Azure</li>
+            </ul>
+
+            <div class="project-links">
+              <pv-button
+                :label="t('projects.liveDemo')"
+                icon="pi pi-globe"
+                class="project-pv-btn"
+                outlined
+                @click="openMealflowLiveDemo"
+              />
+
+              <div class="project-icon-group">
+                <pv-button
+                  icon="pi pi-file"
+                  rounded
+                  text
+                  class="project-pv-icon-btn"
+                  :title="t('projects.docTooltip')"
+                  :aria-label="t('projects.docTooltip')"
+                  @click="openMealflowDoc"
+                />
+                <pv-button
+                  icon="pi pi-github"
+                  rounded
+                  text
+                  class="project-pv-icon-btn"
+                  :title="t('projects.githubTooltip')"
+                  :aria-label="t('projects.githubTooltip')"
+                  @click="openGithub"
+                />
+              </div>
+            </div>
           </div>
 
-          <ul class="project-tech-stack">
-            <li>Java</li>
-            <li>Spring Boot</li>
-            <li>Vue.js</li>
-            <li>PrimeVue</li>
-            <li>MySQL</li>
-            <li>Redis</li>
-            <li>RabbitMQ</li>
-            <li>Azure</li>
-          </ul>
-
-          <div class="project-links">
-            <pv-button
-              :label="t('projects.mealflow.liveDemo')"
-              icon="pi pi-globe"
-              class="project-pv-btn"
-              outlined
-              @click="openLiveDemo"
-            />
-
-            <div class="project-icon-group">
-              <pv-button
-                icon="pi pi-file"
-                rounded
-                text
-                class="project-pv-icon-btn"
-                :title="t('projects.mealflow.docTooltip')"
-                :aria-label="t('projects.mealflow.docTooltip')"
-                @click="openDoc"
-              />
-              <pv-button
-                icon="pi pi-github"
-                rounded
-                text
-                class="project-pv-icon-btn"
-                :title="t('projects.mealflow.githubTooltip')"
-                :aria-label="t('projects.mealflow.githubTooltip')"
-                @click="openGithub"
-              />
-            </div>
+          <div class="project-image-col">
+            <ProjectCarousel :slides="mealflowSlides" />
           </div>
         </div>
 
-        <!-- Columna Derecha: Carrusel de Imágenes del Proyecto -->
-        <div class="project-image-col">
-          <div
-            class="project-carousel"
-            @mouseenter="stopSlideTimer"
-            @mouseleave="startSlideTimer"
-          >
-            <!-- Título del Slide visible e i18n -->
-            <div class="carousel-header">
-              <div class="carousel-header-left">
-                <span class="carousel-dot-indicator"></span>
-                <span class="carousel-slide-title">
-                  {{ t(projectSlides[currentSlide].titleKey) }}
-                </span>
-              </div>
-              <div class="carousel-counter">
-                {{ currentSlide + 1 }} / {{ projectSlides.length }}
-              </div>
+        <div class="featured-project-grid">
+          <div class="project-info-col">
+            <p class="project-overtitle">{{ t("projects.overtitle") }}</p>
+            <h3 class="project-featured-title">
+              {{ t("projects.diabelife.title") }}
+            </h3>
+
+            <div class="project-description-card">
+              <p>
+                <strong>DiabeLife</strong> {{ t("projects.diabelife.p1_intro") }}
+              </p>
+              <p>
+                {{ t("projects.diabelife.p2_1") }} <span class="highlight-tech">.NET 9</span> y <span class="highlight-tech">ASP.NET Core</span> {{ t("projects.diabelife.p2_2") }} <span class="highlight-tech">Domain-Driven Design (DDD)</span>{{ t("projects.diabelife.p2_3") }} <span class="highlight-tech">IAM (Identity and Access Management)</span> {{ t("projects.diabelife.p2_4") }} <span class="highlight-tech">JWT</span>{{ t("projects.diabelife.p2_5") }} <span class="highlight-tech">Entity Framework Core</span> {{ t("projects.diabelife.p2_6") }} <span class="highlight-tech">Swagger / OpenAPI</span>.
+              </p>
+              <p>
+                {{ t("projects.diabelife.p3_1") }} <span class="highlight-tech">Vue.js</span>{{ t("projects.diabelife.p3_2") }} <span class="highlight-tech">Docker</span> {{ t("projects.diabelife.p3_3") }} <span class="highlight-tech">Render</span> {{ t("projects.diabelife.p3_4") }} <span class="highlight-tech">Vercel</span>{{ t("projects.diabelife.p3_5") }}
+              </p>
             </div>
 
-            <!-- Visor del carrusel con imágenes -->
-            <div class="carousel-viewport">
-              <div
-                v-for="(slide, index) in projectSlides"
-                :key="slide.key"
-                class="carousel-slide"
-                :class="{ active: currentSlide === index }"
-              >
-                <img
-                  :src="slide.image"
-                  :alt="t(slide.titleKey)"
-                  class="carousel-img"
-                  loading="lazy"
+            <ul class="project-tech-stack">
+              <li>.NET 9</li>
+              <li>ASP.NET Core</li>
+              <li>Vue.js</li>
+              <li>Entity Framework Core</li>
+              <li>MySQL</li>
+              <li>DDD</li>
+              <li>JWT / IAM</li>
+              <li>Docker</li>
+              <li>Render</li>
+              <li>Vercel</li>
+            </ul>
+
+            <div class="project-links">
+              <pv-button
+                :label="t('projects.viewRepo')"
+                icon="pi pi-github"
+                class="project-pv-btn"
+                outlined
+                @click="openDiabelifeRepo"
+              />
+
+              <div class="project-icon-group">
+                <pv-button
+                  icon="pi pi-github"
+                  rounded
+                  text
+                  class="project-pv-icon-btn"
+                  :title="t('projects.githubTooltip')"
+                  :aria-label="t('projects.githubTooltip')"
+                  @click="openDiabelifeRepo"
                 />
               </div>
+            </div>
+          </div>
 
-              <!-- Flechas de navegación -->
-              <pv-button
-                icon="pi pi-chevron-left"
-                rounded
-                text
-                class="carousel-arrow prev"
-                @click.stop="prevSlide"
-                aria-label="Previous slide"
-              />
-              <pv-button
-                icon="pi pi-chevron-right"
-                rounded
-                text
-                class="carousel-arrow next"
-                @click.stop="nextSlide"
-                aria-label="Next slide"
-              />
+          <div class="project-image-col">
+            <ProjectCarousel :slides="diabelifeSlides" />
+          </div>
+        </div>
+
+        <div class="featured-project-grid">
+          <div class="project-info-col">
+            <p class="project-overtitle">{{ t("projects.overtitle") }}</p>
+            <h3 class="project-featured-title">
+              {{ t("projects.denunciaya.title") }}
+            </h3>
+
+            <div class="project-description-card">
+              <p>
+                <strong>DenunciaYa</strong> {{ t("projects.denunciaya.p1_intro") }}
+              </p>
+              <p>
+                {{ t("projects.denunciaya.p2_1") }} <span class="highlight-tech">Java 25</span> y <span class="highlight-tech">Spring Boot 3.5</span>{{ t("projects.denunciaya.p2_2") }} <span class="highlight-tech">Domain-Driven Design (DDD)</span>{{ t("projects.denunciaya.p2_3") }} <span class="highlight-tech">Spring Security</span> {{ t("projects.denunciaya.p2_4") }} <span class="highlight-tech">JWT (JJWT)</span>{{ t("projects.denunciaya.p2_5") }} <span class="highlight-tech">Spring Data JPA</span> {{ t("projects.denunciaya.p2_6") }} <span class="highlight-tech">SpringDoc OpenAPI / Swagger UI</span>.
+              </p>
+              <p>
+                {{ t("projects.denunciaya.p3_1") }} <span class="highlight-tech">Angular</span>{{ t("projects.denunciaya.p3_2") }} <span class="highlight-tech">Docker</span> {{ t("projects.denunciaya.p3_3") }}
+              </p>
             </div>
 
-            <!-- Bolitas debajo del carrusel -->
-            <div class="carousel-indicators">
-              <button
-                v-for="(slide, index) in projectSlides"
-                :key="'dot-' + slide.key"
-                type="button"
-                class="carousel-dot"
-                :class="{ active: currentSlide === index }"
-                @click="goToSlide(index)"
-                :aria-label="t(slide.titleKey)"
-                :title="t(slide.titleKey)"
-              ></button>
+            <ul class="project-tech-stack">
+              <li>Java 25</li>
+              <li>Spring Boot 3.5</li>
+              <li>Angular</li>
+              <li>Spring Security</li>
+              <li>JWT</li>
+              <li>Spring Data JPA</li>
+              <li>MySQL</li>
+              <li>DDD</li>
+              <li>Docker</li>
+              <li>Swagger UI</li>
+            </ul>
+
+            <div class="project-links">
+              <pv-button
+                :label="t('projects.viewRepo')"
+                icon="pi pi-github"
+                class="project-pv-btn"
+                outlined
+                @click="openDenunciayaRepo"
+              />
+
+              <div class="project-icon-group">
+                <pv-button
+                  icon="pi pi-github"
+                  rounded
+                  text
+                  class="project-pv-icon-btn"
+                  :title="t('projects.githubTooltip')"
+                  :aria-label="t('projects.githubTooltip')"
+                  @click="openDenunciayaRepo"
+                />
+              </div>
             </div>
+          </div>
+
+          <div class="project-image-col">
+            <ProjectCarousel :slides="denunciayaSlides" />
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ⚙️ Footer -->
     <footer class="footer text-center py-4">
       <small>© {{ new Date().getFullYear() }} Gabriel Marca — {{ t("footer.role") }}</small>
     </footer>
@@ -473,22 +541,21 @@ onBeforeUnmount(() => {
   background-color: #0a192f;
   color: #ccd6f6;
   font-family: "Poppins", sans-serif;
-  min-height: 100vh; /* ✅ asegura que la página ocupa toda la altura */
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 .hero {
   position: relative;
-  overflow: hidden;
   min-height: 100vh;
-  padding: 0 10%;
+  padding: 7rem 10% 4rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  box-sizing: border-box;
 }
 
-/* 📌 Barras Laterales Fijas (Sidebars de Contacto) */
 .sidebar-left {
   position: fixed;
   bottom: 0;
@@ -541,7 +608,6 @@ onBeforeUnmount(() => {
   background-color: #94a3b8;
 }
 
-/* 🧭 Navbar */
 .navbar a {
   color: #C1440E;
   font-weight: 500;
@@ -575,34 +641,33 @@ onBeforeUnmount(() => {
 .intro-text {
   color: #C1440E;
   font-family: "Fira Code", "Consolas", monospace;
-  font-size: 1rem;
+  font-size: clamp(0.88rem, 1.5vw, 1rem);
   font-weight: 500;
   margin-bottom: 0.5rem;
 }
 .main-name {
-  font-size: 3.5rem;
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
   font-weight: 700;
   color: #e6f1ff;
   line-height: 1.15;
   margin: 0 0 0.5rem 0;
 }
 .subtitle {
-  font-size: 2rem;
+  font-size: clamp(1.3rem, 3vw, 2rem);
   font-weight: 600;
-  color: #cbd5e1; /* Mayor brillo y contraste sobre el fondo azul marino */
+  color: #cbd5e1;
   margin: 0 0 1.25rem 0;
 }
 .description {
-  max-width: 640px; /* Mayor ancho para lectura fluida */
+  max-width: 640px;
   color: #b8c4e0;
-  font-size: 1.05rem;
+  font-size: clamp(0.95rem, 1.4vw, 1.05rem);
   line-height: 1.75;
 }
 .accent {
   color: #64ffda;
   font-weight: 500;
 }
-/* Botón CTA armonizado con el naranja de marca (#C1440E) */
 .resume-btn {
   border: 1.5px solid #C1440E !important;
   color: #ff7a45 !important;
@@ -620,11 +685,12 @@ onBeforeUnmount(() => {
 }
 
 .section {
-  min-height: 100vh; /* ✅ cada sección ocupa pantalla completa */
-  padding: 5rem 10%;
+  min-height: auto;
+  padding: 6rem 10% 4rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  box-sizing: border-box;
 }
 .section-title {
   color: #64ffda;
@@ -639,7 +705,6 @@ onBeforeUnmount(() => {
   line-height: 1.8;
 }
 
-/* 👤 About Me - Layout de 2 columnas (imagen en color original) */
 .about-container {
   display: grid;
   grid-template-columns: 3fr 2fr;
@@ -677,7 +742,6 @@ onBeforeUnmount(() => {
   object-fit: cover;
 }
 
-/* 🧠 03. Skills and My Tools */
 .skills-section {
   align-items: center;
 }
@@ -698,7 +762,6 @@ onBeforeUnmount(() => {
   margin: 0 0.4rem;
 }
 
-/* Grid de 2 columnas para Frontend y Backend */
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -756,7 +819,6 @@ onBeforeUnmount(() => {
   color: #64ffda;
 }
 
-/* Tarjeta de Certificados (PrimeVue pv-card) */
 .certificates-wrapper {
   width: 100%;
   max-width: 720px;
@@ -831,10 +893,15 @@ onBeforeUnmount(() => {
   color: #a8b2d1;
 }
 
-/* 🚀 04. My Projects (Diseño superpuesto de 2 columnas) */
 .projects-section {
   background-color: #0a192f;
   align-items: center;
+}
+.projects-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 7rem;
+  width: 100%;
 }
 .projects-main-title {
   font-size: 2rem;
@@ -870,7 +937,7 @@ onBeforeUnmount(() => {
   letter-spacing: 0.05em;
 }
 .project-featured-title {
-  font-size: 1.9rem;
+  font-size: clamp(1.35rem, 2.5vw, 1.9rem);
   font-weight: 700;
   color: #ccd6f6;
   margin: 0 0 1.5rem 0;
@@ -887,6 +954,8 @@ onBeforeUnmount(() => {
   box-shadow: 0 20px 30px -15px rgba(2, 12, 27, 0.7);
   position: relative;
   z-index: 3;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 .project-description-card p {
   margin: 0 0 0.85rem 0;
@@ -962,171 +1031,51 @@ onBeforeUnmount(() => {
   width: 100%;
 }
 
-/* 🖼️ Carrusel de Imágenes */
-.project-carousel {
-  display: flex;
-  flex-direction: column;
-  background-color: #112240;
-  border: 1px solid #233554;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 20px 30px -15px rgba(2, 12, 27, 0.75);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-.project-carousel:hover {
-  border-color: rgba(100, 255, 218, 0.35);
-  box-shadow: 0 25px 35px -15px rgba(2, 12, 27, 0.85);
-}
-.carousel-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.85rem 1.25rem;
-  background: rgba(10, 25, 47, 0.85);
-  border-bottom: 1px solid #233554;
-}
-.carousel-header-left {
-  display: flex;
-  align-items: center;
-  gap: 0.65rem;
-}
-.carousel-dot-indicator {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: #64ffda;
-  box-shadow: 0 0 8px #64ffda;
-  display: inline-block;
-  flex-shrink: 0;
-}
-.carousel-slide-title {
-  font-family: "Fira Code", "Consolas", monospace;
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #64ffda;
-  letter-spacing: 0.03em;
-}
-.carousel-counter {
-  font-family: "Fira Code", "Consolas", monospace;
-  font-size: 0.82rem;
-  color: #8892b0;
-}
-.carousel-viewport {
-  position: relative;
-  width: 100%;
-  height: 350px;
-  background-color: #0b192f;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.carousel-slide {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.45s ease-in-out, visibility 0.45s ease-in-out;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.5rem;
-}
-.carousel-slide.active {
-  opacity: 1;
-  visibility: visible;
-  z-index: 1;
-}
-.carousel-img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 6px;
-  user-select: none;
-}
-.carousel-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 36px !important;
-  height: 36px !important;
-  min-width: 36px !important;
-  border-radius: 50% !important;
-  background: rgba(10, 25, 47, 0.75) !important;
-  border: 1px solid #233554 !important;
-  color: #ccd6f6 !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  cursor: pointer;
-  z-index: 4;
-  transition: all 0.2s ease !important;
-  backdrop-filter: blur(4px);
-  opacity: 0;
-  padding: 0 !important;
-}
-.carousel-viewport:hover .carousel-arrow {
-  opacity: 1;
-}
-.carousel-arrow:hover {
-  background: #112240 !important;
-  color: #64ffda !important;
-  border-color: #64ffda !important;
-  transform: translateY(-50%) scale(1.08);
-}
-.carousel-arrow.prev {
-  left: 10px;
-}
-.carousel-arrow.next {
-  right: 10px;
-}
-.carousel-indicators {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.65rem;
-  padding: 0.85rem 1rem;
-  background: rgba(10, 25, 47, 0.6);
-  border-top: 1px solid #233554;
-}
-.carousel-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: transparent;
-  border: 1.5px solid #64ffda;
-  cursor: pointer;
-  padding: 0;
-  transition: all 0.3s ease;
-}
-.carousel-dot:hover {
-  background-color: rgba(100, 255, 218, 0.4);
-  transform: scale(1.2);
-}
-.carousel-dot.active {
-  background-color: #64ffda;
-  width: 24px;
-  border-radius: 6px;
-  box-shadow: 0 0 10px rgba(100, 255, 218, 0.6);
-}
+@media (max-width: 1150px) {
+  .sidebar-left,
+  .sidebar-right {
+    display: none;
+  }
 
-@media (max-width: 960px) {
   .featured-project-grid {
     grid-template-columns: 1fr;
     gap: 2.5rem;
   }
+  .project-info-col,
+  .project-image-col {
+    width: 100%;
+  }
+
+  .hero,
+  .section {
+    padding: 5rem 6% 3rem;
+  }
 }
 
-/* ⚙️ Footer */
+@media (max-width: 900px) {
+  .about-container {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .hero,
+  .section {
+    padding: 5rem 5% 3rem;
+  }
+}
+
 .footer {
   border-top: 1px solid #233554;
   color: #8892b0;
 }
 
-/* mobile menu toggle (hamburger) */
 .menu-toggle {
-  /* eliminamos los !important y estilos inline para mantener control desde CSS */
-  display: none; /* oculto por defecto, solo mostrar en mobile via media query */
+  display: none;
   align-items: center;
   justify-content: center;
   gap: 6px;
@@ -1139,10 +1088,9 @@ onBeforeUnmount(() => {
   cursor: pointer;
   z-index: 1100;
   transition: transform 0.18s ease, background 0.15s ease;
-  color: var(--color-text); /* hace que el svg herede color */
+  color: var(--color-text);
 }
 
-/* SVG hamburger - usar stroke para mejor control de color */
 .menu-toggle .hamburger-icon {
   width: 22px;
   height: 18px;
@@ -1150,11 +1098,11 @@ onBeforeUnmount(() => {
 }
 .menu-toggle .line {
   fill: none;
-  stroke: currentColor; /* usa color del padre */
+  stroke: currentColor;
   stroke-width: 2;
   stroke-linecap: round;
   transition: transform 0.18s ease, opacity 0.12s ease;
-  transform-box: fill-box; /* asegurar que el origen sea relativo al rect */
+  transform-box: fill-box;
   transform-origin: center;
 }
 .menu-toggle[aria-expanded="true"] .line1 {
@@ -1167,30 +1115,7 @@ onBeforeUnmount(() => {
   transform: translateY(-3px) rotate(-45deg);
 }
 
-@media (max-width: 767px) {
-  .sidebar-left,
-  .sidebar-right {
-    display: none;
-  }
-
-  .main-name {
-    font-size: 2.5rem;
-  }
-
-  .subtitle {
-    font-size: 1.45rem;
-  }
-
-  .about-container {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
-
-  .skills-grid {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
-
+@media (max-width: 768px) {
   .certificates-card {
     padding: 1.25rem 1rem;
   }
@@ -1200,10 +1125,6 @@ onBeforeUnmount(() => {
     flex-direction: column;
     gap: 2rem;
   }
-  .project-info-col,
-  .project-image-col {
-    width: 100%;
-  }
   .carousel-viewport {
     height: 240px;
   }
@@ -1211,23 +1132,21 @@ onBeforeUnmount(() => {
     opacity: 0.85;
   }
 
-  /* show hamburger */
   .menu-toggle {
-    display: inline-flex; /* visible en móvil */
-    position: relative; /* se muestra dentro del header */
-    margin-left: auto; /* empuja el toggle a la derecha en el header */
+    display: inline-flex;
+    position: relative;
+    margin-left: auto;
     background: rgba(255,255,255,0.06);
     box-shadow: 0 6px 18px rgba(0,0,0,0.12);
     border: 1px solid rgba(255,255,255,0.08);
   }
 
-  /* hide desktop nav inline, turn into panel */
   .nav-menu {
     position: fixed;
-    top: 64px; /* below header */
+    top: 64px;
     left: 0;
     right: 0;
-    display: none !important; /* FORZAR oculto en móvil */
+    display: none !important;
     flex-direction: column;
     gap: 12px;
     padding: 16px 5%;
@@ -1237,7 +1156,7 @@ onBeforeUnmount(() => {
   }
 
   .nav-menu.open {
-    display: flex !important; /* FORZAR visible cuando abierto */
+    display: flex !important;
   }
 
   .nav-menu a {
@@ -1245,13 +1164,11 @@ onBeforeUnmount(() => {
     padding: 8px 0;
   }
 
-  /* adjust logo spacing when menu visible */
   .logo {
     z-index: 1101;
   }
 }
 
-/* keep existing desktop look intact */
 @media (min-width: 768px) {
   .nav-menu {
     display: flex !important;

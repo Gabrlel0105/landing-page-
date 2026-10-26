@@ -28,6 +28,10 @@
   "projects": {
     "title": "Mis Proyectos",
     "overtitle": "Proyecto Destacado",
+    "viewRepo": "Ver Repositorio",
+    "githubTooltip": "Repositorio en GitHub",
+    "docTooltip": "Documento del Proyecto",
+    "liveDemo": "Ver Despliegue",
     "mealflow": {
       "title": "MealFlow — Plataforma de alimentación saludable",
       "p1_intro": "es una plataforma web que conecta a consumidores interesados en llevar una alimentación saludable con proveedores que publican sus productos. Permite descubrir opciones de comida y organizar la alimentación semanal.",
@@ -48,11 +52,49 @@
         "consumer": "Vista Consumidor",
         "provider": "Vista Proveedor",
         "admin": "Vista Administrador",
+        "grafana": "Observabilidad Grafana",
+        "prometheus": "Prometheus",
         "architecture": "Arquitectura de Software"
-      },
-      "liveDemo": "Ver Despliegue",
-      "docTooltip": "Documento del Proyecto",
-      "githubTooltip": "Repositorio en GitHub"
+      }
+    },
+    "diabelife": {
+      "title": "DiabeLife — Plataforma de Salud IoT para Diabetes",
+      "p1_intro": "es una aplicación web orientada a personas que padecen diabetes, facilitando el control y prevención de complicaciones mediante la integración de tecnologías IoT a través de un glucómetro inteligente que sincroniza lecturas en tiempo real.",
+      "p2_1": "El backend está desarrollado con",
+      "p2_2": "bajo una arquitectura monolítica modular guiada por",
+      "p2_3": ". Incorpora un contexto de",
+      "p2_4": "con autenticación basada en",
+      "p2_5": ", hashing de contraseñas y middleware de autorización en el pipeline de ASP.NET Core.",
+      "p2_6": "se utiliza junto a MySQL aplicando convenciones de nombrado y auditoría automática, documentado con",
+      "p3_1": "El frontend está construido con",
+      "p3_2": ", integrando módulos de red social, citas médicas, historial clínico y mensajería directa médico-paciente. Containerizado con",
+      "p3_3": "y desplegado en",
+      "p3_4": "(backend) y",
+      "p3_5": "(frontend).",
+      "slides": {
+        "slide1": "Monitoreo de Glucosa IoT",
+        "slide2": "Gestión de Consultas y Citas",
+        "slide3": "Historial y Reportes Clínicos",
+        "slide4": "Comunidad y Mensajería"
+      }
+    },
+    "denunciaya": {
+      "title": "DenunciaYa — Plataforma de Gestión e Incidencias Urbanas",
+      "p1_intro": "es una plataforma web y móvil que permite a los ciudadanos reportar incidencias urbanas (baches, alumbrado, residuos, fugas) y actos de corrupción de forma ágil, segura y anónima con fotos, videos y audios, canalizándolos hacia las autoridades en tiempo real.",
+      "p2_1": "El backend está desarrollado con",
+      "p2_2": "siguiendo principios de",
+      "p2_3": "y arquitectura en capas. La seguridad y control de acceso están gestionados con",
+      "p2_4": "y tokens",
+      "p2_5": ". Utiliza",
+      "p2_6": "para la persistencia sobre MySQL y documentación interactiva mediante",
+      "p3_1": "El frontend está desarrollado con",
+      "p3_2": ", ofreciendo dashboards de control municipal, seguimiento de tickets en vivo y analítica avanzada para una gestión pública eficiente. Todo el sistema está paquetizado con",
+      "p3_3": "para un despliegue SaaS confiable.",
+      "slides": {
+        "slide1": "Panel Principal de Incidencias",
+        "slide2": "Recepción y Gestión de Tickets",
+        "slide3": "Seguimiento y Analítica Municipal"
+      }
     }
   },
   "footer": {
